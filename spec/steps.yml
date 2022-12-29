@@ -1,0 +1,35 @@
+
+quote:
+  - name: Subir cotización
+    description: Subir propuesta a cliente incluyendo plazos, alcance y precios
+    reviewer_count: 1
+    file_upload: mandatory
+    reviewer_roles:
+      - Administrativo
+  - name: Revisar bases de la propuesta
+    description: Verificar que la propuesta hace sentido en plazos, alcance y precios
+    reviewer_count: 1
+    reviewer_roles:
+      - Supervisor
+  - name: Revisar propuesta técnica
+    description: Revisar que plazos y gente sea la adecuada para el alcance
+    reviewer_count: 1
+    reviewer_roles:
+      - Líder Técnico
+  - name: Revisar propuesta económica
+    description: Verificar que el precio propuesto concuerde con la gente que trabajará en el proyecto
+    reviewer_count: 2
+    reviewer_roles:
+      - Control financiero
+      - Gerente General
+  - name: Aceptar propuesta
+    description: Revisar que el alcance esté alineado con los objetivos estratégicos de la empresa
+    reviewer_count: 1
+    reviewer_roles:
+      - Gerente General
+  - name: Guardar propuesta aceptada
+    description: Subir propuesta firmada por el cliente
+    reviewer_count: 1
+    file_upload: mandatory
+    reviewer_roles:
+      - Administrativo
