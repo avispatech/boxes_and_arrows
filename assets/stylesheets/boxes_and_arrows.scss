@@ -1,0 +1,125 @@
+// Assets/stylesheets
+
+.boxes-and-arrows {
+    --baa-blue: #6d9eeb;
+    --baa-green: #93c47d;
+    --baa-red: #e06666;
+    --baa-yellow: #d9eb6d;
+    --baa-dark: #595959;
+    --baa-light: #cccccc;
+  
+    --default-thickness: 1px;
+    --current-thickness: 4px;
+    --selected-thickness: 4px;
+  
+    --primary-stroke: var(--baa-blue);
+    --primary-background: Lighten(var(--baa-blue), 20%);
+  
+    --approved-stroke: var(--baa-green);
+    --rejected-stroke: var(--baa-red);
+  
+    --default-arrow-stroke: var(--baa-dark);
+    --inactive-arrow-stroke: var(--baa-light);
+  
+    --box-radius: 0.25rem;
+  
+    --font-size: 1.25rem;
+    --process-name-font-size: 1.25em;
+    --numbers-font-size: 1.5em;
+    --role-list-font-size: 0.75em;
+  
+    --approval-mark-color: var(--baa-green);
+    --approval-mark-icon: ✓;
+  
+  }
+  .baa-grid {
+    width: 100%;
+    display: grid;
+    column-gap: 5em;
+    row-gap: 1em;
+    //grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-rows: min-content 1fr min-content;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    padding: 1em;
+    
+  
+  }
+  
+  .baa-grid-flex {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1em;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    align-items: flex-start;
+    align-content: space-between;
+  }
+  
+  
+  .baa-grid .baa-step {
+    // flex-shrink: 1;
+    // flex-grow: 8;
+    // flex-basis: 30em;
+    grid-row: 1 / 4;
+    grid-column: span 1;
+    display: grid;
+    grid-template-rows: subgrid;
+    
+    > * { outline: 1px solid red; }
+  }
+  .baa-step .baa-box-process-name {
+    font-size: var(--process-name-font-size);
+    grid-row: 1 / 2;
+    min-width: 15ch;
+  }
+  .baa-step .baa-list {
+    grid-row: 4 / 5;
+  }
+  .baa.baa-box {
+    border-radius: var(--box-radius);
+    outline: var(--default-thickness) solid var(--primary-stroke);
+    background-color: var(--primary-background);
+    color: var(--primary-stroke);
+    padding: 2em 0.5em;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+      "file-upload-info . reviewer-count-info";
+    position: relative;
+    
+    &::before {
+      content: '';
+      width: 1em;
+      height: 1em;
+      border: 1px solid black;
+      border-left: 0;
+      border-bottom: 0;
+      position: absolute;
+      top: calc(50% - 0.5em);
+      left: calc(calc(100% + 4em) - 4px);
+      transform: rotate(45deg);
+    }
+    &::after {
+      content: '';
+      width: calc(5em - 5px);
+      height: 0px;
+      outline: 1px solid black;
+      left: calc(100% + 2px);
+      top: 50%;
+      position: absolute;
+    }
+  }
+  
+  .baa-box div {
+    grid-area: file-upload-info;
+  }
+  .baa-box p {
+    grid-area: reviewer-count-info;
+  }
+  
